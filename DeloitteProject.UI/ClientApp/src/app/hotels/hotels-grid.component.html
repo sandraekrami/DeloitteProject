@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row grid-container">
+    <div class="col-md-10">
+      <div class="table">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>&nbsp;</th>
+              <th (click)="sort('id')">Id</th>
+              <th (click)="sort('name')">Name</th>
+              <th (click)="sort('description')">Description</th>
+              <th (click)="sort('location')">Location</th>
+              <th (click)="sort('ranking')">Ranking</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let hotel of hotels;trackBy:trackby.hotel">
+              <td>{{ hotel.id }}</td>
+              <td>{{ hotel.name }}</td>
+              <td>{{ hotel.description }}</td>
+              <td>{{ hotel.location }}</td>
+              <td>{{ hotel.ranking }}</td>
+            </tr>
+            <tr *ngIf="!hotels.length">
+              <td>&nbsp;</td>
+              <td colspan="6">No Hotels Found!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

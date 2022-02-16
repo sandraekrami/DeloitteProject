@@ -1,0 +1,21 @@
+<div class="hotels view indent">
+  <div class="container">
+    <header>
+      <h3>
+        <span class="glyphicon glyphicon-user"></span>
+        {{ title }}
+      </h3>
+    </header>
+    <br />
+    <div class="row">
+      <div class="col-md-8">
+        <div class="navbar">
+          <filter-textbox name='keyword' (changed)="filterChanged($event, 'keyword')"></filter-textbox>
+          <filter-textbox name='name' (changed)="nameFilterChanged($event, 'name')"></filter-textbox>
+        </div>
+      </div>
+    </div>
+
+    <hotels-grid [hotels]="filteredHotels"></hotels-grid>
+  </div>
+</div>
