@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { propertyResolver } from '../shared/property-resolver';
 
 @Injectable()
 export class Sorter {
@@ -15,16 +14,9 @@ export class Sorter {
       let aVal: any;
       let bVal: any;
 
-      //Handle resolving complex properties such as 'state.name' for prop value
-      if (prop && prop.indexOf('.') > -1) {
-        aVal = propertyResolver.resolve(prop, a);
-        bVal = propertyResolver.resolve(prop, b);
-      }
-      else {
-        aVal = a[prop];
-        bVal = b[prop];
-      }
-
+      aVal = a[prop];
+      bVal = b[prop];
+      
       //Fix issues that spaces before/after string value can cause such as ' San Francisco'
       if (this.isString(aVal)) aVal = aVal.trim().toUpperCase();
       if (this.isString(bVal)) bVal = bVal.trim().toUpperCase();
@@ -44,5 +36,4 @@ export class Sorter {
   isString(val: any): boolean {
     return (val && (typeof val === 'string' || val instanceof String));
   }
-
 }

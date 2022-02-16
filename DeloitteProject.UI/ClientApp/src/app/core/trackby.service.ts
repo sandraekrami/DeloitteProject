@@ -5,6 +5,6 @@ import { IHotel } from '../shared/interfaces';
 export class TrackByService {
 
   hotel(index: number, hotel: IHotel) {
-    return hotel.ranking;
+    return hotel.rating;
   }
 }

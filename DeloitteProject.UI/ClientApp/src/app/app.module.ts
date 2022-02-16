@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { DataService } from './core/data.service';
 import { DataFilterService } from './core/data-filter.service';
 import { Sorter } from './core/sorter';
@@ -22,8 +20,6 @@ import { FilterTextboxComponent } from './shared/filter-textbox.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     HotelsComponent,
     HotelsGridComponent,
     FilterTextboxComponent
@@ -34,8 +30,6 @@ import { FilterTextboxComponent } from './shared/filter-textbox.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'hotels', component: HotelsComponent },
     ])
   ],

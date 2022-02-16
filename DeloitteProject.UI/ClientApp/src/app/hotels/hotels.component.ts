@@ -35,6 +35,17 @@ export class HotelsComponent implements OnInit {
     }
   }
 
+  ratingFilterChanged(ratingFilter: string, name: string) {
+    if (ratingFilter && this.hotels) {
+      let props = ['rating'];
+
+      this.filteredHotels = this.dataFilter.filterEqualGreaterThan(this.hotels, props, ratingFilter);
+    }
+    else {
+      this.filteredHotels = this.hotels;
+    }
+  }
+
   filterChanged(filterText: string, name: string) {
     if (filterText && this.hotels) {
       let props = ['id', 'name', 'description', 'location'];
@@ -48,18 +59,33 @@ export class HotelsComponent implements OnInit {
   getHotels() {
     this.hotels = this.filteredHotels = [{
       id: 1,
-      name: 'name',
-      location: 'loc',
-      description: 'desc',
-      ranking: 1
+      name: 'Belgrave House',
+      location: 'Greater London',
+      description: 'London',
+      rating: 1
     },
       {
         id: 2,
-        name: 'name 2',
-        location: 'loc 2',
-        description: 'desc 2',
-        ranking: 2
-      }    ];
+        name: 'The Breakers',
+        location: 'Hampstead',
+        description: 'London',
+        rating: 2
+      },
+      {
+        id: 3,
+        name: 'Mandarin Oriental',
+        location: 'Leeds',
+        description: 'great place to rlax',
+        rating: 5
+      },
+      {
+        id: 4,
+        name: 'Downtowner Hotel & Spa',
+        location: 'Toronto',
+        description: 'The best',
+        rating: 5
+      }
+    ];
     //this.dataService.getHotels()
     //  .subscribe((response: IHotel[]) => {
     //    this.hotels = this.filteredHotels = response;

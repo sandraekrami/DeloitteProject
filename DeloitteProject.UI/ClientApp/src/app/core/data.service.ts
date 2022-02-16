@@ -5,16 +5,7 @@ import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 import { IHotel } from '../shared/interfaces';
-/* 
-    ##### PLEASE NOTE ######
 
-    1. This code has been updated to use the HttpClient service that's part of Angular 4.3+
-       Http and HttpModule have been deprecated
-    2. RxJS has been updated to the latest version which uses pipe() rather than operator chaining
-    3. The original file shown in the Pluralsight course is also available if you want it: data.service.ts.http
-    
-    #####
-*/
 @Injectable()
 export class DataService {
 
@@ -31,7 +22,7 @@ export class DataService {
       name: 'name',
       location: 'loc',
       description: 'desc',
-      ranking: 1
+      rating: 1
     }];
 
     return Observable.create(hotels);
@@ -52,13 +43,12 @@ export class DataService {
 
   private handleError(error: HttpErrorResponse) {
     console.error('server error:', error);
+
     if (error.error instanceof Error) {
       let errMessage = error.error.message;
       return Observable.throw(errMessage);
-      // Use the following instead if using lite-server
-      //return Observable.throw(err.text() || 'backend server error');
     }
 
-    return Observable.throw(error || 'ASP.NET Core server error');
+    return Observable.throw(error || 'API Error');
   }
 }

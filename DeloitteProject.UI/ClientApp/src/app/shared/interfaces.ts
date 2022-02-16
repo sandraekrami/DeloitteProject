@@ -3,5 +3,5 @@ export interface IHotel {
   name: string;
   description: string;
   location: string;
-  ranking: number;
+  rating: number;
 }
