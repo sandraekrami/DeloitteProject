@@ -16,7 +16,7 @@ namespace DeloitteProject.Domain.Models
         [Required]
         public string Location { get; set; }
 
-        [Range(1, 5, ErrorMessage = "Rating must be between 1 and 5")]
-        public int Rating { get; set; }
+        [Range(1, 5, ErrorMessage = "Ranking must be between 1 and 5")]
+        public int Ranking { get; set; }
     }
 }

@@ -4,6 +4,6 @@ namespace DeloitteProject.Domain.DataAccess
 {
     public interface IGetAllHotelsQuery
     {
-        Task<IList<Hotel>> Execute();
+        Task<IEnumerable<Hotel>> Execute();
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DeloitteProject.Domain.DataAccess;
 using DeloitteProject.Domain.Models;
 using DeloitteProject.Services;
+using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
 
@@ -14,13 +15,15 @@ namespace DeliotteProject.UnitTests.Services
     {
         internal object filterValue;
         internal IList<Hotel> allHotels;
-        internal Task<IList<Hotel>> result;
+        internal Task<IEnumerable<Hotel>> result;
         internal Mock<IGetAllHotelsQuery> getAllHotelsQueryMock;
+        internal Mock<ILogger<RatingFilter>> loggerMock;
 
         protected override void EstablishContext()
         {
             base.EstablishContext();
             getAllHotelsQueryMock = new Mock<IGetAllHotelsQuery>();
+            loggerMock = new Mock<ILogger<RatingFilter>>();
 
             allHotels = new List<Hotel>
             {
@@ -36,7 +39,7 @@ namespace DeliotteProject.UnitTests.Services
 
         protected override RatingFilter CreateSubjectUnderTest()
         {
-            return new RatingFilter(getAllHotelsQueryMock.Object);
+            return new RatingFilter(getAllHotelsQueryMock.Object, loggerMock.Object);
         }
 
         protected override void Because()
@@ -70,11 +73,11 @@ namespace DeliotteProject.UnitTests.Services
             protected override void EstablishContext()
             {
                 base.EstablishContext();
-                allHotels[0].Rating = 1;
-                allHotels[1].Rating = 2;
-                allHotels[2].Rating = 3;
-                allHotels[3].Rating = 4;
-                allHotels[4].Rating = 4;
+                allHotels[0].Ranking = 1;
+                allHotels[1].Ranking = 2;
+                allHotels[2].Ranking = 3;
+                allHotels[3].Ranking = 4;
+                allHotels[4].Ranking = 4;
                 getAllHotelsQueryMock.Setup(x => x.Execute()).ReturnsAsync(allHotels);
 
                 filterValue = 5;
@@ -98,11 +101,11 @@ namespace DeliotteProject.UnitTests.Services
             protected override void EstablishContext()
             {
                 base.EstablishContext();
-                allHotels[0].Rating = 1;
-                allHotels[1].Rating = 5;
-                allHotels[2].Rating = 3;
-                allHotels[3].Rating = 5;
-                allHotels[4].Rating = 4;
+                allHotels[0].Ranking = 1;
+                allHotels[1].Ranking = 5;
+                allHotels[2].Ranking = 3;
+                allHotels[3].Ranking = 5;
+                allHotels[4].Ranking = 4;
                 getAllHotelsQueryMock.Setup(x => x.Execute()).ReturnsAsync(allHotels);
 
                 filterValue = 3;
@@ -119,14 +122,14 @@ namespace DeliotteProject.UnitTests.Services
             {
                 foreach (var hotel in result.Result)
                 {
-                    Assert.True(hotel.Rating >= (int)filterValue);
+                    Assert.True(hotel.Ranking >= (int)filterValue);
                 }
             }
 
             [Fact]
             public void it_sorts_result_by_rating_descending()
             {
-                List<Hotel> expectedList = result.Result.OrderByDescending(x=>x.Rating).ToList();
+                List<Hotel> expectedList = result.Result.OrderByDescending(x=>x.Ranking).ToList();
                 Assert.True(expectedList.SequenceEqual(result.Result));
             }
         }

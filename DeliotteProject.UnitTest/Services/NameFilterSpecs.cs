@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Linq;
 using DeloitteProject.Domain.DataAccess;
 using DeloitteProject.Domain.Models;
 using DeloitteProject.Services;
+using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
 
@@ -12,13 +13,15 @@ namespace DeliotteProject.UnitTests.Services
     {
         internal object filterValue;
         internal IList<Hotel> allHotels;
-        internal Task<IList<Hotel>> result;
+        internal IList<Hotel> result;
         internal Mock<IGetAllHotelsQuery> getAllHotelsQueryMock;
+        internal Mock<ILogger<NameFilter>> loggerMock;
 
         protected override void EstablishContext()
         {
             base.EstablishContext();
             getAllHotelsQueryMock = new Mock<IGetAllHotelsQuery>();
+            loggerMock = new Mock<ILogger<NameFilter>>();
 
             allHotels = new List<Hotel>
             {
@@ -34,12 +37,12 @@ namespace DeliotteProject.UnitTests.Services
 
         protected override NameFilter CreateSubjectUnderTest()
         {
-            return new NameFilter(getAllHotelsQueryMock.Object);
+            return new NameFilter(getAllHotelsQueryMock.Object, loggerMock.Object);
         }
 
         protected override void Because()
         {
-            result = SUT.Apply(filterValue);
+            result = SUT.Apply(filterValue).Result.ToList();
         }
 
         public class when_filter_value_is_null : NameFilterSpecs
@@ -59,7 +62,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void if_returns_all_hotels()
             {
-                Assert.Equal(allHotels, result.Result);
+                Assert.Equal(allHotels, result);
             }
         }
 
@@ -80,7 +83,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void if_returns_all_hotels()
             {
-                Assert.Equal(allHotels, result.Result);
+                Assert.Equal(allHotels, result);
             }
         }
 
@@ -101,7 +104,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void if_returns_empty_list()
             {
-                Assert.Empty(result.Result);
+                Assert.Empty(result);
             }
         }
 
@@ -122,8 +125,8 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_returns_all_hotels_with_name_contining_keyword()
             {
-                Assert.Equal(1, result.Result.Count);
-                Assert.Equal(allHotels[3], result.Result[0]);
+                Assert.Equal(1, result.Count);
+                Assert.Equal(allHotels[3], result[0]);
             }
         }
 
@@ -142,9 +145,9 @@ namespace DeliotteProject.UnitTests.Services
             }
 
             [Fact]
-            public void it_searches_exact_match_and_returns_empty_list()
+            public void search_is_case_insensetive()
             {
-                Assert.Empty(result.Result);
+                Assert.NotEmpty(result);
             }
         }
 
@@ -165,7 +168,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void if_returns_empty_list()
             {
-                Assert.Empty(result.Result);
+                Assert.Empty(result);
             }
         }
 
@@ -186,7 +189,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void if_returns_empty_list()
             {
-                Assert.Empty(result.Result);
+                Assert.Empty(result);
             }
         }
     }

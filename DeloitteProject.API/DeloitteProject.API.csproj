@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DeloitteProject.DataAccess\DeloitteProject.DataAccess.csproj" />
     <ProjectReference Include="..\DeloitteProject.Services\DeloitteProject.Services.csproj" />
-    <ProjectReference Include="..\DeloitteProject.UI.MVC\DeloitteProject.UI.MVC.csproj" />
   </ItemGroup>
 
 </Project>

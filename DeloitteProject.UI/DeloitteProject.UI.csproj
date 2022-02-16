@@ -32,10 +32,8 @@
     <None Remove="ClientApp\src\app\core\trackby.service.ts" />
     <None Remove="ClientApp\src\app\hotels\hotels-grid.component.ts" />
     <None Remove="ClientApp\src\app\hotels\hotels.component.ts" />
-    <None Remove="ClientApp\src\app\shared\ensureModuleLoadedOnceGuard.ts" />
     <None Remove="ClientApp\src\app\shared\filter-textbox.component.ts" />
     <None Remove="ClientApp\src\app\shared\interfaces.ts" />
-    <None Remove="ClientApp\src\app\shared\property-resolver.ts" />
   </ItemGroup>
 
   <ItemGroup>

@@ -6,7 +6,7 @@ namespace DeloitteProject.DataAccess
 {
     public class GetAllHotelsQuery : IGetAllHotelsQuery
     {
-        public async Task<IList<Hotel>> Execute()
+        public async Task<IEnumerable<Hotel>> Execute()
         {
             string json = await File.ReadAllTextAsync(Constants.HotelsFilePath);
             return JsonConvert.DeserializeObject<List<Hotel>>(json);

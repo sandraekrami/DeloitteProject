@@ -12,7 +12,7 @@ namespace DeliotteProject.UnitTests
                 Name=$"Hotel {key}",
                 Description = $"Description {key}",
                 Location = $"Locaion {key}",
-                Rating = key
+                Ranking = key
             };
         }
     }
