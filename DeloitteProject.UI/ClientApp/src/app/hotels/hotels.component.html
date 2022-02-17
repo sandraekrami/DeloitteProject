@@ -1,0 +1,22 @@
+<div class="hotels view indent">
+  <div class="container">
+    <header>
+      <h3>
+        <span class="glyphicon glyphicon-user"></span>
+        {{ title }}
+      </h3>
+    </header>
+    <br />
+    <div class="row">
+      <div class="col-md-8">
+        <div class="navbar">
+          <filter-textbox name='Keyword' maxLength='50' (changed)="filterChanged($event, 'keyword')"></filter-textbox>
+          <filter-textbox name='Name' maxLength='50' (changed)="nameFilterChanged($event, 'name')"></filter-textbox>
+          <filter-textbox name='Ranking' maxLength='1' (changed)="rankingFilterChanged($event, 'ranking')"></filter-textbox>
+        </div>
+      </div>
+    </div>
+
+    <hotels-grid [hotels]="filteredHotels"></hotels-grid>
+  </div>
+</div>
