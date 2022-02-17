@@ -29,8 +29,8 @@ import { FilterTextboxComponent } from './shared/filter-textbox.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'hotels', component: HotelsComponent },
+      { path: 'Home', component: HomeComponent },
+      { path: '', component: HotelsComponent, pathMatch: 'full' },
     ])
   ],
   providers: [DataService, DataFilterService, Sorter, TrackByService],
