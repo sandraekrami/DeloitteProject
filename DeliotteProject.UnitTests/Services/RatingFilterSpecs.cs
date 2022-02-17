@@ -34,7 +34,7 @@ namespace DeliotteProject.UnitTests.Services
                 Helper.CreateHotel(5)
             };
 
-            getAllHotelsQueryMock.Setup(x => x.Execute()).ReturnsAsync(allHotels);
+            getAllHotelsQueryMock.Setup(x => x.Execute(It.IsAny<string>())).ReturnsAsync(allHotels);
         }
 
         protected override RatingFilter CreateSubjectUnderTest()
@@ -44,7 +44,7 @@ namespace DeliotteProject.UnitTests.Services
 
         protected override void Because()
         {
-            result = SUT.Apply(filterValue);
+            result = SUT.Apply(filterValue, "");
         }
 
         public class when_filter_value_is_not_an_integer : RatingFilterSpecs
@@ -58,13 +58,13 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public async Task it_should_throw_exception()
             {
-                await Assert.ThrowsAsync<InvalidOperationException>(() => SUT.Apply(filterValue));
+                await Assert.ThrowsAsync<InvalidOperationException>(() => SUT.Apply(filterValue, It.IsAny<string>()));
             }
 
             [Fact]
             public void it_should_not_get_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute(), Times.Never);
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()), Times.Never);
             }
         }
 
@@ -78,7 +78,7 @@ namespace DeliotteProject.UnitTests.Services
                 allHotels[2].Ranking = 3;
                 allHotels[3].Ranking = 4;
                 allHotels[4].Ranking = 4;
-                getAllHotelsQueryMock.Setup(x => x.Execute()).ReturnsAsync(allHotels);
+                getAllHotelsQueryMock.Setup(x => x.Execute(It.IsAny<string>())).ReturnsAsync(allHotels);
 
                 filterValue = 5;
             }
@@ -86,7 +86,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -106,7 +106,7 @@ namespace DeliotteProject.UnitTests.Services
                 allHotels[2].Ranking = 3;
                 allHotels[3].Ranking = 5;
                 allHotels[4].Ranking = 4;
-                getAllHotelsQueryMock.Setup(x => x.Execute()).ReturnsAsync(allHotels);
+                getAllHotelsQueryMock.Setup(x => x.Execute(It.IsAny<string>())).ReturnsAsync(allHotels);
 
                 filterValue = 3;
             }
@@ -114,7 +114,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]

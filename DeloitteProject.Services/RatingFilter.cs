@@ -20,7 +20,7 @@ namespace DeloitteProject.Services
             this.logger = logger;
         }
 
-        public async Task<IEnumerable<Hotel>> Apply(object filterValue)
+        public async Task<IEnumerable<Hotel>> Apply(object filterValue, string filePath)
         {
             logger.LogInformation("Filtering hotels by ranking");
 
@@ -31,7 +31,7 @@ namespace DeloitteProject.Services
             }
 
             int rating = (int)filterValue;
-            var allHotels = await getAllHotelsQuery.Execute();
+            var allHotels = await getAllHotelsQuery.Execute(filePath);
 
             return allHotels
                 .Where(x => x.Ranking >= rating)

@@ -32,7 +32,7 @@ namespace DeliotteProject.UnitTests.Services
                 Helper.CreateHotel(5)
             };
 
-            getAllHotelsQueryMock.Setup(x => x.Execute()).ReturnsAsync(allHotels);
+            getAllHotelsQueryMock.Setup(x => x.Execute(It.IsAny<string>())).ReturnsAsync(allHotels);
         }
 
         protected override NameFilter CreateSubjectUnderTest()
@@ -42,7 +42,7 @@ namespace DeliotteProject.UnitTests.Services
 
         protected override void Because()
         {
-            result = SUT.Apply(filterValue).Result.ToList();
+            result = SUT.Apply(filterValue, "").Result.ToList();
         }
 
         public class when_filter_value_is_null : NameFilterSpecs
@@ -56,7 +56,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -77,7 +77,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -98,7 +98,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -119,7 +119,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -141,7 +141,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -162,7 +162,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]
@@ -183,7 +183,7 @@ namespace DeliotteProject.UnitTests.Services
             [Fact]
             public void it_still_gets_all_hotels()
             {
-                getAllHotelsQueryMock.Verify(x => x.Execute());
+                getAllHotelsQueryMock.Verify(x => x.Execute(It.IsAny<string>()));
             }
 
             [Fact]

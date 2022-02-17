@@ -6,6 +6,6 @@ namespace DeloitteProject.Domain.Services
 {
     public interface IFilterService
     {
-        Task<IEnumerable<Hotel>> Apply(object filterValue);
+        Task<IEnumerable<Hotel>> Apply(object filterValue, string filePath);
     }
 }

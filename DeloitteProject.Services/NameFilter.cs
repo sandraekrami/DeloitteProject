@@ -20,10 +20,10 @@ namespace DeloitteProject.Services
             this.logger = logger;
         }
 
-        public async Task<IEnumerable<Hotel>> Apply(object filterValue)
+        public async Task<IEnumerable<Hotel>> Apply(object filterValue, string filePath)
         {
             logger.LogInformation("Filtering hotels by name");
-            var allHotels = await getAllHotelsQuery.Execute();
+            var allHotels = await getAllHotelsQuery.Execute(filePath);
 
             if (filterValue == null || string.IsNullOrEmpty(filterValue.ToString()))
             {

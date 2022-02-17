@@ -8,8 +8,8 @@ namespace DeliotteProject.UnitTests
         {
             return new Hotel
             {
-                Id=1,
-                Name=$"Hotel {key}",
+                Id = 1,
+                Name = $"Hotel {key}",
                 Description = $"Description {key}",
                 Location = $"Locaion {key}",
                 Ranking = key

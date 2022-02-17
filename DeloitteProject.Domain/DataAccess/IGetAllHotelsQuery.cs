@@ -6,6 +6,6 @@ namespace DeloitteProject.Domain.DataAccess
 {
     public interface IGetAllHotelsQuery
     {
-        Task<IEnumerable<Hotel>> Execute();
+        Task<IEnumerable<Hotel>> Execute(string filePath);
     }
 }

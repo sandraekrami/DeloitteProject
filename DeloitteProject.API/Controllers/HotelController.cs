@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using DeloitteProject.Domain.Models;
 using DeloitteProject.Domain.Services;
@@ -14,6 +15,7 @@ namespace DeloitteProject.API.Controllers
     {
         private readonly Func<FilterType, IFilterService> serviceResolver;
         private readonly ILogger<HotelController> logger;
+        private readonly string filePath = $"{Directory.GetCurrentDirectory()}/hotels.json";
 
         public HotelController(Func<FilterType, IFilterService> serviceResolver,
             ILogger<HotelController> logger)
@@ -29,7 +31,7 @@ namespace DeloitteProject.API.Controllers
         {
             try
             {
-                var hotels = await serviceResolver(FilterType.Name).Apply(string.Empty);
+                var hotels = await serviceResolver(FilterType.Name).Apply(string.Empty, filePath);
                 return Ok(hotels);
             }
             catch (Exception exp)
@@ -39,21 +41,21 @@ namespace DeloitteProject.API.Controllers
             }
         }
 
-        //[HttpGet("Filter")]
-        //[ProducesResponseType(typeof(List<Hotel>), 200)]
-        //[ProducesResponseType(typeof(APIResponse<Hotel>), 400)]
-        //public async Task<IActionResult> Filter(string keyword, FilterType filterType)
-        //{
-        //    try
-        //    {
-        //        var hotels = await serviceResolver(filterType).Apply(keyword);
-        //        return Ok(hotels);
-        //    }
-        //    catch (Exception exp)
-        //    {
-        //        logger.LogError(exp.Message);
-        //        return BadRequest(new APIResponse<Hotel> { Status = false });
-        //    }
-        //}
+        [HttpGet("Filter")]
+        [ProducesResponseType(typeof(List<Hotel>), 200)]
+        [ProducesResponseType(typeof(APIResponse<Hotel>), 400)]
+        public async Task<IActionResult> Filter(string keyword, FilterType filterType)
+        {
+            try
+            {
+                var hotels = await serviceResolver(filterType).Apply(keyword, filePath);
+                return Ok(hotels);
+            }
+            catch (Exception exp)
+            {
+                logger.LogError(exp.Message);
+                return BadRequest(new APIResponse<Hotel> { Status = false });
+            }
+        }
     }
 }

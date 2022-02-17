@@ -1,0 +1,126 @@
+[{
+	"Id": 1,
+	"Name": "Travelodge London Covent Garden Hotel",
+	"Description": "A great place to stay!",
+	"Location": "10 Drury Lane High Holborn, London",
+	"Ranking": 1
+},
+{
+	"Id": 2,
+	"Name": "Mirrors Hotel",
+	"Description": "London",
+	"Location": "London",
+	"Ranking": 5
+},{
+	"Id": 3,
+	"Name": "Dritan Stay",
+	"Description": "Dritan is an Albanian name, meaning ‘light’",
+	"Location": "Italy",
+	"Ranking": 4
+},{
+	"Id": 4,
+	"Name": "Jade Hotel",
+	"Description": "his name is derived from the word ijada, which means stone of the colic.",
+	"Location": "Greece",
+	"Ranking": 4
+},{
+	"Id": 5,
+	"Name": "Indigo",
+	"Description": "dark bluish purple dye that is obtained from plants",
+	"Location": "France",
+	"Ranking": 3
+},{
+	"Id": 6,
+	"Name": "Hazel",
+	"Description": "Another hotel name",
+	"Location": "Peru",
+	"Ranking": 2
+},{
+	"Id": 7,
+	"Name": "Columba",
+	"Description": "Columba-hotel.com",
+	"Location": "Colombia",
+	"Ranking": 3
+},{
+	"Id": 8,
+	"Name": "Blue Jay Hotel",
+	"Description": "",
+	"Location": "loc 8",
+	"Ranking": 3
+},{
+	"Id": 9,
+	"Name": "Mandarin Oriental",
+	"Description": "Mandarin Oriental",
+	"Location": "Paris",
+	"Ranking": 4
+},{
+	"Id": 10,
+	"Name": "Cape Grace",
+	"Description": "Cape Town Hotel",
+	"Location": "Cape Town",
+	"Ranking": 5
+},
+
+
+{
+	"Id": 11,
+	"Name": "The Sebastian Hotel",
+	"Description": "This is another great hotel in Spain",
+	"Location": "Spain",
+	"Ranking": 1
+},
+{
+	"Id": 12,
+	"Name": "Southern Hospitality",
+	"Description": "Southern Hospitality is a great place to stay",
+	"Location": "Milan",
+	"Ranking": 5
+},{
+	"Id": 13,
+	"Name": "Blooming Bed And Breakfast",
+	"Description": "Great for students",
+	"Location": "London",
+	"Ranking": 2
+},{
+	"Id": 14,
+	"Name": "The River Front Resort",
+	"Description": "Perfect location",
+	"Location": "Corfu",
+	"Ranking": 4
+},{
+	"Id": 15,
+	"Name": "American Inn",
+	"Description": "American Inn",
+	"Location": "California",
+	"Ranking": 3
+},{
+	"Id": 16,
+	"Name": "Hotel Indigo",
+	"Description": "Perfect location  sight seeing",
+	"Location": "Rome",
+	"Ranking": 2
+},{
+	"Id": 17,
+	"Name": "Shilo Inns Rose Garden",
+	"Description": "ShiloInnsRoseGarden.com",
+	"Location": "Paris",
+	"Ranking": 4
+},{
+	"Id": 18,
+	"Name": "Historic Meadows Motel",
+	"Description": "Good place to stay",
+	"Location": "Leeds",
+	"Ranking": 2
+},{
+	"Id": 19,
+	"Name": "Blossomwell Resorts",
+	"Description": "Blossomwell Resorts",
+	"Location": "Greece",
+	"Ranking": 4
+},{
+	"Id": 20,
+	"Name": "The Nines",
+	"Description": "The Nines hotel",
+	"Location": "London",
+	"Ranking": 3
+}]

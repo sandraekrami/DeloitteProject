@@ -20,10 +20,10 @@ namespace DeloitteProject.Services
             this.logger = logger;
         }
 
-        public async Task<IEnumerable<Hotel>> Apply(object filterValue)
+        public async Task<IEnumerable<Hotel>> Apply(object filterValue, string filePath)
         {
             logger.LogInformation("Filtering hotels by keyword");
-            IEnumerable<Hotel>? allHotels = await getAllHotelsQuery.Execute();
+            IEnumerable<Hotel>? allHotels = await getAllHotelsQuery.Execute(filePath);
 
             if (filterValue == null || string.IsNullOrEmpty(filterValue.ToString()))
             {
@@ -36,7 +36,7 @@ namespace DeloitteProject.Services
                     x.Name.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
                     x.Description.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
                     x.Location.Contains(keyword, StringComparison.OrdinalIgnoreCase))
-                .ToList() ?? new List<Hotel>();
+                .ToList();
         }
     }
 }

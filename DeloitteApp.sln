@@ -19,14 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeloitteProject.Domain", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeloitteProject.Services", "DeloitteProject.Services\DeloitteProject.Services.csproj", "{7016498F-DF9D-4821-A8AF-C1C8CE8566C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeliotteProject.UnitTests", "DeliotteProject.UnitTests\DeliotteProject.UnitTests.csproj", "{30939E1B-1FB6-49ED-A280-74729FB557AA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeloitteProject.UI", "DeloitteProject.UI\DeloitteProject.UI.csproj", "{DF41785C-4117-46DD-B892-47DF9B158AB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeloitteProject.UI", "DeloitteProject.UI\DeloitteProject.UI.csproj", "{DF41785C-4117-46DD-B892-47DF9B158AB0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D95FC66B-7ED4-4C44-93D6-5520DD57BC24}"
 	ProjectSection(SolutionItems) = preProject
 		hotels.json = hotels.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliotteProject.UnitTests", "DeliotteProject.UnitTests\DeliotteProject.UnitTests.csproj", "{43624EF3-82FB-4168-88E3-8CBDA570E442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,14 +50,14 @@ Global
 		{7016498F-DF9D-4821-A8AF-C1C8CE8566C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7016498F-DF9D-4821-A8AF-C1C8CE8566C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7016498F-DF9D-4821-A8AF-C1C8CE8566C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30939E1B-1FB6-49ED-A280-74729FB557AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30939E1B-1FB6-49ED-A280-74729FB557AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30939E1B-1FB6-49ED-A280-74729FB557AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30939E1B-1FB6-49ED-A280-74729FB557AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DF41785C-4117-46DD-B892-47DF9B158AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DF41785C-4117-46DD-B892-47DF9B158AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF41785C-4117-46DD-B892-47DF9B158AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF41785C-4117-46DD-B892-47DF9B158AB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43624EF3-82FB-4168-88E3-8CBDA570E442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43624EF3-82FB-4168-88E3-8CBDA570E442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43624EF3-82FB-4168-88E3-8CBDA570E442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43624EF3-82FB-4168-88E3-8CBDA570E442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,8 +67,8 @@ Global
 		{8959B47F-8027-4331-946D-842C43F94B34} = {FE31F5FE-A572-4F3B-B40F-7115C4597CFD}
 		{1C462371-751F-4ABD-BD71-687F0B2CB515} = {6050B405-10F8-430C-9996-34F54D27EB32}
 		{7016498F-DF9D-4821-A8AF-C1C8CE8566C7} = {6050B405-10F8-430C-9996-34F54D27EB32}
-		{30939E1B-1FB6-49ED-A280-74729FB557AA} = {B0F1D5FB-A062-4642-AE36-C0F3E431AAC8}
 		{DF41785C-4117-46DD-B892-47DF9B158AB0} = {B05D4110-3313-4C0A-A6CE-1CEA1E6EDFEA}
+		{43624EF3-82FB-4168-88E3-8CBDA570E442} = {B0F1D5FB-A062-4642-AE36-C0F3E431AAC8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0ABDB653-C3AC-4AFE-A856-CA6C277013EC}
