@@ -1,4 +1,8 @@
-﻿using DeloitteProject.Domain.DataAccess;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using DeloitteProject.Domain.DataAccess;
 using DeloitteProject.Domain.Models;
 using DeloitteProject.Domain.Services;
 using Microsoft.Extensions.Logging;
@@ -12,8 +16,8 @@ namespace DeloitteProject.Services
 
         public RatingFilter(IGetAllHotelsQuery getAllHotelsQuery, ILogger<RatingFilter> logger)
         {
-            this.getAllHotelsQuery=getAllHotelsQuery;
-            this.logger=logger;
+            this.getAllHotelsQuery = getAllHotelsQuery;
+            this.logger = logger;
         }
 
         public async Task<IEnumerable<Hotel>> Apply(object filterValue)
